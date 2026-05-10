@@ -8,7 +8,7 @@ from random import randint
 #
 # constants
 ENTER_NUMBER_LIMIT_LOWER=1
-ENTER_NUMBER_LIMIT_UPPER=1000
+ENTER_NUMBER_LIMIT_UPPER=10
 #
 def get_number(enter_number_limit_lower: int,enter_number_limit_upper: int,msg: str) -> int:
     while True:
@@ -93,7 +93,7 @@ while True:
         break
 
     guess=int((guess_max-guess_min)/2 + guess_min)
-    answer = get_answer(f"#"+str(i)+" - Guessing: "+str(guess)+" - this number is: too [l]ow | too [h]ight | you [q]uessed: ")
+    answer = get_answer(f"#"+str(i).zfill(2)+" - Guessing: "+str(guess)+" - this number is: too [l]ow | too [h]ight | you [q]uessed: ")
 
     if answer=="x":
         sys_exit()
@@ -103,7 +103,7 @@ while True:
                 print(f"\n I won !")
                 break
             else:
-                print(f"\n You note the number: {bet_number} but as a guess number you marked {guess} !")
+                print(f"\n You marked as a guess number {guess} but you note the number {bet_number}!")
                 break
         else:
             print(f"\n I won !")
